@@ -23,7 +23,8 @@ describe "article show page" do
 
         expect(current_path).to eq(articles_path)
         expect(page).to have_content(article_2.title)
-        expect(page).to_not have_content(article_1.title)
+        expect(page).to_not have_content("Title: #{article_1.title}")
+        expect(page).to have_content("Article '#{article_1.title}' Deleted!")
       end
     end
 
@@ -40,6 +41,7 @@ describe "article show page" do
 
         expect(page).to have_content("Edited Title")
         expect(page).to have_content("Edited Body")
+        expect(page).to have_content("Article 'Edited Title' Updated!")
       end
     end
   end
